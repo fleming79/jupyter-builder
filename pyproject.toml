@@ -40,7 +40,7 @@ Issues = "https://github.com/jupyterlab/jupyter-builder/issues/new/choose"
 Zulip = "https://jupyter.zulipchat.com/#narrow/channel/469762-jupyterlab"
 Pypi = "https://pypi.org/project/jupyter-builder"
 
-[project.optional-dependencies]
+[dependency-groups]
 test = [
     "coverage",
     "pytest>=7.0",
@@ -50,7 +50,7 @@ test = [
     "jinja2-time"
 ]
 # Check ruff version is aligned with the one in .pre-commit-config.yaml
-dev = ["build", "mypy", "pre-commit", "hatch", "ruff==0.15.18"]
+dev = ["build", "mypy", "pre-commit", "hatch", "ruff==0.15.18",  { include-group = "test" }]
 
 [project.scripts]
 jupyter-builder = "jupyter_builder.main:main"
